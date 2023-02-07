@@ -12,11 +12,12 @@ namespace NominaPractica
     {
 
         int contador = 1;
-        const string pathFile = @"F:\DORIAN DATA\Programacion 2\Visual Studio Workspace\miLista.xlsx";
+        
 
         public FormNomina()
         {
             InitializeComponent();
+           
         }
 
 
@@ -142,7 +143,7 @@ namespace NominaPractica
             this.txtPost.Text = null;
             this.txtRegularHours.Text = null;
             this.txtTenure.Text = null;
-
+            this.textModifyRow.Text = null;
 
         }
 
@@ -159,27 +160,45 @@ namespace NominaPractica
 
         private void btnDeleteRow_Click(object sender, EventArgs e)
         {
-            int row = Convert.ToInt32(txtRowsNumber)-1;
+            try
+            {
+                int row = (Convert.ToInt32(txtRowsNumber.Text));
 
-            try { 
+                row -= 1;
+                try
+                {
+
+                    miTabla1.Rows.RemoveAt(row);
+                    miTabla2.Rows.RemoveAt(row);
+
+                    txtRowsNumber.Text = null;
+                    Application.removeEmpleadoAt(row);
+
+
+                }
+                catch (NullReferenceException ex)
+                {
+                    MessageBox.Show("Ya no hay fila");
+                    Console.Write(ex.Message);
+                }
+                catch(Exception ex3)
+                {
+                    MessageBox.Show("Ha ocurrido un error!");
+                }
+                finally
+                {
+                    txtRowsNumber.Text = null;
+                }
+
+
+            }
+            catch(FormatException ex2)
+            {
+                MessageBox.Show("Error! Ingrese un numero valido.");
+            }
             
-                miTabla1.Rows.RemoveAt(row);
-                miTabla2.Rows.RemoveAt(row);
 
-                txtRowsNumber.Text = null;
-                Application.removeEmpleadoAt(row);
-
-
-            }
-            catch (NullReferenceException ex)
-            {
-                MessageBox.Show("Ya no hay fila");
-                Console.Write(ex.Message);
-            }
-            finally
-            {
-                txtRowsNumber.Text = null;
-            }
+            
 
         }
 
@@ -187,7 +206,7 @@ namespace NominaPractica
         {
             int fila = miTabla1.RowCount;
 
-            for (int i = fila - 1; i >= 0; i--)
+            for (int i = (fila - 2); i >= 0; i--)
             {
                 miTabla1.Rows.RemoveAt(i);
                 miTabla2.Rows.RemoveAt(i);
@@ -255,6 +274,9 @@ namespace NominaPractica
 
 
             EmpleadosDAL empleadoDAL = new EmpleadosDAL();
+
+
+
             empleadoDAL.saveEmpleados(miTabla1, miTabla2, pathFile);
 
         }
@@ -263,7 +285,7 @@ namespace NominaPractica
         {
             // List < ObjetoaAgregar > = List = new List<ObjetoaAgregar>();
             EmpleadosDAL eDAL = new EmpleadosDAL();
-
+            string pathFile = txtFilePath.Text;
             limpiarTablas();
             eDAL.openEmpleados(miTabla1, miTabla2, pathFile);
 
@@ -384,7 +406,7 @@ namespace NominaPractica
         private void btnUpdate_Click(object sender, EventArgs e)
         {
 
-            int rowNumber;
+            int rowNumber, contador;
 
             if (String.IsNullOrEmpty(txtHourlyWage.Text) || String.IsNullOrEmpty(txtLastName.Text)
                 || String.IsNullOrEmpty(txtName.Text) || String.IsNullOrEmpty(txtNoInss.Text) || String.IsNullOrEmpty(txtOvertime.Text)
@@ -400,7 +422,12 @@ namespace NominaPractica
             {
                 try
                 {
-                    rowNumber = Convert.ToInt32(textModifyRow.Text) - 1;
+                    rowNumber = Convert.ToInt32(textModifyRow.Text);
+                    contador = rowNumber;
+                    rowNumber -= 2;
+
+                    
+
 
                     Empleado empleado = new Empleado();
 
@@ -411,7 +438,7 @@ namespace NominaPractica
                     empleado.Cargo = txtPost.Text.ToString().Trim();
 
                     empleado.SalarioXHora = Convert.ToDecimal(txtHourlyWage.Text);
-                    empleado.HorasRegulares = Convert.ToDouble(txtRegularHours.Text);
+                    empleado.HorasRegulares = (Convert.ToDouble(txtRegularHours.Text)) * 4;
                     empleado.HorasExtra = Convert.ToDouble(txtOvertime.Text);
 
                     empleado.Antiguedad = Convert.ToInt32(txtTenure.Text);
@@ -442,35 +469,32 @@ namespace NominaPractica
 
                     rowNumber += 1;
 
-                    string[] datos1 = new string[9];
-                    datos1[0] = rowNumber.ToString();
-                    datos1[1] = empleado.NumInss.ToString();
-                    datos1[2] = empleado.Nombre + " " + empleado.Apellido;
-                    datos1[3] = empleado.Cargo;
-                    datos1[4] = empleado.SalarioMensual.ToString("0.##");
-                    datos1[5] = empleado.HorasExtra.ToString("0.##");
-                    datos1[6] = empleado.IngresoHorasExtra.ToString("0.##");
-                    datos1[7] = empleado.IngresoAntiguedad.ToString("0.##");
-                    datos1[8] = empleado.SalarioTotal.ToString("0.##");
 
-                    miTabla1.Rows.Insert(rowNumber, datos1);
-
-
+                    //Modificar fila
+                    //Tabla1
+                    miTabla1.Rows[rowNumber].Cells[0].Value = contador.ToString();
+                    miTabla1.Rows[rowNumber].Cells[1].Value = empleado.NumInss.ToString();
+                    miTabla1.Rows[rowNumber].Cells[2].Value = empleado.Nombre + " " + empleado.Apellido;
+                    miTabla1.Rows[rowNumber].Cells[3].Value = empleado.Cargo;
+                    miTabla1.Rows[rowNumber].Cells[4].Value = empleado.SalarioMensual.ToString("0.##");
+                    miTabla1.Rows[rowNumber].Cells[5].Value = empleado.HorasExtra.ToString("0.##");
+                    miTabla1.Rows[rowNumber].Cells[6].Value = empleado.IngresoHorasExtra.ToString("0.##");
+                    miTabla1.Rows[rowNumber].Cells[7].Value = empleado.IngresoAntiguedad.ToString("0.##");
+                    miTabla1.Rows[rowNumber].Cells[8].Value = empleado.SalarioTotal.ToString("0.##");
 
 
+                    //Tabla2
+                    miTabla2.Rows[rowNumber].Cells[0].Value = contador.ToString();
+                    miTabla2.Rows[rowNumber].Cells[1].Value = empleado.InssLaboral.ToString("0.##");
+                    miTabla2.Rows[rowNumber].Cells[2].Value = empleado.ImpuestoRenta.ToString("0.##");
+                    miTabla2.Rows[rowNumber].Cells[3].Value = empleado.TotalDeducciones.ToString("0.##");
+                    miTabla2.Rows[rowNumber].Cells[4].Value = empleado.NetoARecibir.ToString("0.##");
+                    miTabla2.Rows[rowNumber].Cells[5].Value = empleado.InssPatronal.ToString("0.##");
+                    miTabla2.Rows[rowNumber].Cells[6].Value = empleado.Inatec.ToString("0.##");
+                    miTabla2.Rows[rowNumber].Cells[7].Value = empleado.Vacaciones.ToString("0.##");
+                    miTabla2.Rows[rowNumber].Cells[8].Value = empleado.TreceavoMes.ToString("0.##");
 
-
-                    string[] datos2 = new string[9];
-                    datos2[0] = rowNumber.ToString();
-                    datos2[1] = empleado.InssLaboral.ToString("0.##");
-                    datos2[2] = empleado.ImpuestoRenta.ToString("0.##");
-                    datos2[3] = empleado.TotalDeducciones.ToString("0.##");
-                    datos2[4] = empleado.NetoARecibir.ToString("0.##");
-                    datos2[5] = empleado.InssPatronal.ToString("0.##");
-                    datos2[6] = empleado.Inatec.ToString("0.##");
-                    datos2[7] = empleado.Vacaciones.ToString("0.##");
-                    datos2[8] = empleado.TreceavoMes.ToString("0.##");
-                    miTabla2.Rows.Insert(rowNumber, datos2);
+                   
 
 
                     Application.addEmpleadoAt(rowNumber, empleado);
@@ -481,13 +505,7 @@ namespace NominaPractica
 
                 catch (NullReferenceException e2)
                 {
-                    MessageBox.Show("No existe la" +
-                        "" +
-                        "" +
-                        "" +
-                        "" +
-                        "" +
-                        " fila");
+                    MessageBox.Show("No existe la fila");
                     Console.Write(e2.Message);
                 }
                 catch (Exception ex)
@@ -533,6 +551,8 @@ namespace NominaPractica
             lbl_TotalInatec.Text = null;
             lbl_TotalVacaciones.Text = null;
             lbl_TreceavoMes.Text = null;
+
+            
 
 
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\DORIAN DATA\\Programacion 2\\Visual Studio Workspace\\ProyectoCursoProgramacion_2\\NominaProyectoCurso\\NominaPractica\\NominaProyectoCurso.csproj": {}
+    "F:\\DORIAN DATA\\Programacion 2\\Visual Studio Workspace\\ProyectoCursoProgramacion2\\NominaProyectoCurso\\NominaPractica\\NominaProyectoCurso.csproj": {}
   },
   "projects": {
-    "F:\\DORIAN DATA\\Programacion 2\\Visual Studio Workspace\\ProyectoCursoProgramacion_2\\NominaProyectoCurso\\NominaPractica\\NominaProyectoCurso.csproj": {
+    "F:\\DORIAN DATA\\Programacion 2\\Visual Studio Workspace\\ProyectoCursoProgramacion2\\NominaProyectoCurso\\NominaPractica\\NominaProyectoCurso.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\DORIAN DATA\\Programacion 2\\Visual Studio Workspace\\ProyectoCursoProgramacion_2\\NominaProyectoCurso\\NominaPractica\\NominaProyectoCurso.csproj",
+        "projectUniqueName": "F:\\DORIAN DATA\\Programacion 2\\Visual Studio Workspace\\ProyectoCursoProgramacion2\\NominaProyectoCurso\\NominaPractica\\NominaProyectoCurso.csproj",
         "projectName": "NominaProyectoCurso",
-        "projectPath": "F:\\DORIAN DATA\\Programacion 2\\Visual Studio Workspace\\ProyectoCursoProgramacion_2\\NominaProyectoCurso\\NominaPractica\\NominaProyectoCurso.csproj",
+        "projectPath": "F:\\DORIAN DATA\\Programacion 2\\Visual Studio Workspace\\ProyectoCursoProgramacion2\\NominaProyectoCurso\\NominaPractica\\NominaProyectoCurso.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "F:\\DORIAN DATA\\Programacion 2\\Visual Studio Workspace\\ProyectoCursoProgramacion_2\\NominaProyectoCurso\\NominaPractica\\obj\\",
+        "outputPath": "F:\\DORIAN DATA\\Programacion 2\\Visual Studio Workspace\\ProyectoCursoProgramacion2\\NominaProyectoCurso\\NominaPractica\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -65,10 +65,11 @@ namespace NominaProyectoCurso.dal
                 //miTabla1.DataSource = List;
                 //miTabla2.DataSource = List;
 
-
+                
 
                 /*Se debe construir un objeto usando POO*/
-            }catch(FileNotFoundException ex)
+            }
+            catch(FileNotFoundException ex)
             {
                 MessageBox.Show("Error con la dirección de archivo! Se intentará con la direccion estandart.");
 
@@ -115,7 +116,6 @@ namespace NominaProyectoCurso.dal
                     //miTabla2.DataSource = List;
 
 
-
                     /*Se debe construir un objeto usando POO*/
                 }catch(FileNotFoundException ex2)
                 {
@@ -135,8 +135,20 @@ namespace NominaProyectoCurso.dal
         public void saveEmpleados(DataGridView miTabla1, DataGridView miTabla2, string pathFile)
         {
 
+            if (File.Exists(pathFile))
+            {
+                try
+                {
+                    File.Delete(pathFile);
+                }catch(Exception e)
+                {
+                    MessageBox.Show("Error con el archivo!");
+                }
+            }
+
             /*Codigo para guardar*/
             SLDocument oSLDocument = new SLDocument();
+            
             DataTable table = new DataTable();
 
             table.Columns.Add("No.", typeof(int));
@@ -176,15 +188,41 @@ namespace NominaProyectoCurso.dal
             }
 
             oSLDocument.ImportDataTable(1, 1, table, true);
-
+            
             try
             {
                 oSLDocument.SaveAs(pathFile);
-            }catch(Exception ex)
+                MessageBox.Show("Guardado satisfactoriamente.");
+            }
+            catch(Exception ex)
             {
-                MessageBox.Show("Error con el dirrectorio! Se urará el directorio por defecto");
+                MessageBox.Show("Error con el dirrectorio! Se usará el directorio por defecto");
+
                 string standartPathFile = AppDomain.CurrentDomain.BaseDirectory + "miLista.xlsx";
-                oSLDocument.SaveAs(standartPathFile);
+
+                if (File.Exists(standartPathFile))
+                {
+                    try
+                    {
+                        File.Delete(standartPathFile);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("Error con el archivo!");
+                    }
+                }
+
+                try
+                {
+                    oSLDocument.SaveAs(standartPathFile);
+                    MessageBox.Show("Guardado satisfactoriamente.");
+                }
+                catch(NullReferenceException ex4)
+                {
+                    MessageBox.Show("Error! Error al guardar");
+                }
+                
+                
             }
 
            

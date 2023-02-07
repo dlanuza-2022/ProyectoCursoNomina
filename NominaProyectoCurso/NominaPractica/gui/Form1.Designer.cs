@@ -109,6 +109,7 @@
             // 
             // miTabla1
             // 
+            this.miTabla1.AllowUserToAddRows = false;
             this.miTabla1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.miTabla1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnNumber,
@@ -182,6 +183,7 @@
             // 
             // miTabla2
             // 
+            this.miTabla2.AllowUserToAddRows = false;
             this.miTabla2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.miTabla2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnNo,
@@ -591,7 +593,7 @@
             // 
             // btnCleanPath
             // 
-            this.btnCleanPath.Location = new System.Drawing.Point(912, 104);
+            this.btnCleanPath.Location = new System.Drawing.Point(923, 108);
             this.btnCleanPath.Name = "btnCleanPath";
             this.btnCleanPath.Size = new System.Drawing.Size(57, 25);
             this.btnCleanPath.TabIndex = 52;
