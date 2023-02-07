@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "IX9X6a+4D5NOl9Ofbnd4C4t1EQh2a7NZJoY1PxmtmGmIYzlgd0F6cL55d8RFJWuHBWzwARjYpVJuKAOKya0bJw==",
+  "success": true,
+  "projectFilePath": "F:\\DORIAN DATA\\Programacion 2\\Visual Studio Workspace\\ProyectoCursoProgramacion_2\\NominaProyectoCurso\\NominaPractica\\NominaProyectoCurso.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DELL\\.nuget\\packages\\documentformat.openxml\\2.11.3\\documentformat.openxml.2.11.3.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\spreadsheetlight\\3.5.0\\spreadsheetlight.3.5.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\system.drawing.common\\5.0.0\\system.drawing.common.5.0.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
