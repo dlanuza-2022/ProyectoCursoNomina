@@ -174,6 +174,14 @@ namespace NominaPractica
                     txtRowsNumber.Text = null;
                     Application.removeEmpleadoAt(row);
 
+                    int rowCount = miTabla1.RowCount;
+                    contador = 1;
+                    for(int i = 0; i< (rowCount); i++)
+                    {
+                        miTabla1.Rows[i].Cells[0].Value = contador.ToString();
+                        miTabla2.Rows[i].Cells[0].Value = contador.ToString();
+                        contador++;
+                    }
 
                 }
                 catch (NullReferenceException ex)
@@ -216,7 +224,7 @@ namespace NominaPractica
         private void btnCleanTable_Click(object sender, EventArgs e)
         {
             limpiarTablas();
-
+            contador = 1;
             Application.deleteList();
 
 
