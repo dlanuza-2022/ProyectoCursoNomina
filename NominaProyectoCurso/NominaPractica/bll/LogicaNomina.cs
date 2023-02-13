@@ -42,7 +42,7 @@ namespace NominaProyectoCurso.bll
 
 
 
-        static public decimal calcularIR(decimal totalRevenue, decimal employeeInss)
+        static public decimal calcularIR(decimal totalRevenue /* Salario total */, decimal employeeInss /*Inss*/)
         {
             //deductible
             decimal taxableIncome;
@@ -57,8 +57,9 @@ namespace NominaProyectoCurso.bll
             decimal deductible;
             
             //Operaciones comienzan.
-            taxableIncome = (totalRevenue - employeeInss);
-            yearlyWage = (taxableIncome * 12);
+            taxableIncome/*Base aplicable*/ = (totalRevenue - employeeInss);
+
+            yearlyWage/*Base aplicable anual*/ = (taxableIncome * 12);
 
             if (yearlyWage >= 1 && yearlyWage <= 100000)
             {
@@ -83,6 +84,7 @@ namespace NominaProyectoCurso.bll
                 deductible = 100000;
                 aplicableRate = 0.15;
 
+              
                 salariosSinDeducible = yearlyWage - deductible;
 
                 anualIR = (salariosSinDeducible * (decimal)aplicableRate) + baseTax;
@@ -171,7 +173,7 @@ namespace NominaProyectoCurso.bll
             return vacaciones;
         }
 
-        static public decimal calcularSalarioAntiguedad(int tenure, decimal monthlyWage)
+        static public decimal calcularSalarioAntiguedad(int tenure/*Antiguedad*/, decimal monthlyWage/*Salario mensual*/)
         {
             switch (tenure)
             {

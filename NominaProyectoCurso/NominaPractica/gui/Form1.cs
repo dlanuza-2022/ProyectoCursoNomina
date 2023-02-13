@@ -50,7 +50,9 @@ namespace NominaPractica
                     empleado.Cargo = txtPost.Text.ToString().Trim();
 
                     empleado.SalarioXHora = Convert.ToDecimal(txtHourlyWage.Text);
+
                     empleado.HorasRegulares = Convert.ToDouble(txtRegularHours.Text) * 4;
+
                     empleado.HorasExtra = Convert.ToDouble(txtOvertime.Text);
 
                     empleado.Antiguedad = Convert.ToInt32(txtTenure.Text);
@@ -568,6 +570,11 @@ namespace NominaPractica
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormNomina_Load(object sender, EventArgs e)
         {
 
         }

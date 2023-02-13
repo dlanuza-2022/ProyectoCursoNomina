@@ -205,32 +205,32 @@ namespace NominaProyectoCurso.dol
         /*Renumeración bruta*/
         private decimal salarioXHora;
         private decimal salarioMensual;
-        private double horasRegulares;
-        private double horasExtra;
+        private double horasRegulares; //Semana
+        private double horasExtra; //Mensuales
         private decimal ingresoHorasExtra;
-        private int antiguedad;
-        private decimal ingresoAntiguedad;
-        private decimal salarioTotal;
+        private int antiguedad;   
+        private decimal ingresoAntiguedad;   
+        private decimal salarioTotal; // Salario mensual + ingreso horas extra + ingreso antiguedad 
 
         /*Deducciones*/
-        private decimal inssLaboral;
-        private decimal impuestoRenta;
-        private decimal totalDeducciones;
+        private decimal inssLaboral;  // salario * 7% (0.07)
+        private decimal impuestoRenta; 
+        private decimal totalDeducciones; // IR + Inss
 
         /*Neto a recibir*/
-        private decimal netoARecibir;
+        private decimal netoARecibir; 
 
         /*Impuestos al empleador*/
-        private decimal inssPatronal;
-        private decimal inatec;
+        private decimal inssPatronal; // salario mensual * 22.5% 
+        private decimal inatec; // salario mensual * 2%
 
 
         /*Prestaciones sociales*/
-        private decimal vacaciones;
-        private decimal treceavoMes;
+        private decimal vacaciones; //salario mensual / 12
+        private decimal treceavoMes; // salario mensual * 0.08333
 
 
-        //Separar por departamentos: Ventas, administración, etc...
+        //Separar por departamentos: Ventas, administración, produccion, etc...
         private Departamento departamento;
         
 

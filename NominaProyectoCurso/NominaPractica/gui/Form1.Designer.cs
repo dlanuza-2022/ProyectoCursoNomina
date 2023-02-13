@@ -457,7 +457,7 @@
             // 
             // btnRead
             // 
-            this.btnRead.Location = new System.Drawing.Point(733, 104);
+            this.btnRead.Location = new System.Drawing.Point(734, 104);
             this.btnRead.Name = "btnRead";
             this.btnRead.Size = new System.Drawing.Size(153, 27);
             this.btnRead.TabIndex = 27;
@@ -585,7 +585,7 @@
             // 
             // txtRowsNumber
             // 
-            this.txtRowsNumber.Location = new System.Drawing.Point(665, 108);
+            this.txtRowsNumber.Location = new System.Drawing.Point(664, 108);
             this.txtRowsNumber.Name = "txtRowsNumber";
             this.txtRowsNumber.Size = new System.Drawing.Size(41, 23);
             this.txtRowsNumber.TabIndex = 51;
@@ -593,7 +593,7 @@
             // 
             // btnCleanPath
             // 
-            this.btnCleanPath.Location = new System.Drawing.Point(923, 108);
+            this.btnCleanPath.Location = new System.Drawing.Point(912, 106);
             this.btnCleanPath.Name = "btnCleanPath";
             this.btnCleanPath.Size = new System.Drawing.Size(57, 25);
             this.btnCleanPath.TabIndex = 52;
@@ -743,7 +743,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(1207, 703);
             this.Controls.Add(this.btnLimpiarTotales);
             this.Controls.Add(this.lbl_TotalIR);
@@ -806,6 +806,7 @@
             this.MaximizeBox = false;
             this.Name = "FormNomina";
             this.Text = "Nomina Mensual";
+            this.Load += new System.EventHandler(this.FormNomina_Load);
             ((System.ComponentModel.ISupportInitialize)(this.miTabla1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.miTabla2)).EndInit();
             this.ResumeLayout(false);

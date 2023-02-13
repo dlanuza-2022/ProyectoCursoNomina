@@ -20,9 +20,9 @@ namespace NominaProyectoCurso.dal
 
         public void openEmpleados(DataGridView miTabla1, DataGridView miTabla2, string pathFile)
         {
-            string[] row1 = new string[9];
+            string[] row1/*Fila1*/ = new string[9];
             string[] row2 = new string[9];
-
+            //int contador = 1;
             int iRow = 2;
 
             try
@@ -60,6 +60,7 @@ namespace NominaProyectoCurso.dal
                     //List.add(objetoPersona);
 
                     iRow++;
+                    //contador++;
                 }
 
                 //miTabla1.DataSource = List;
@@ -71,7 +72,7 @@ namespace NominaProyectoCurso.dal
             }
             catch(FileNotFoundException ex)
             {
-                MessageBox.Show("Error con la dirección de archivo! Se intentará con la direccion estandart.");
+                MessageBox.Show("Error con la dirección de archivo! Se intentará con la direccion estandar.");
 
                 try
                 {
@@ -110,6 +111,7 @@ namespace NominaProyectoCurso.dal
                         //List.add(objetoPersona);
 
                         iRow++;
+                        //contador++;
                     }
 
                     //miTabla1.DataSource = List;
@@ -119,7 +121,7 @@ namespace NominaProyectoCurso.dal
                     /*Se debe construir un objeto usando POO*/
                 }catch(FileNotFoundException ex2)
                 {
-                    MessageBox.Show("Error! No se pudo cargar ninguna archivo.");
+                    MessageBox.Show("Error! No se pudo cargar ningun archivo.");
                 }
 
 
@@ -169,7 +171,7 @@ namespace NominaProyectoCurso.dal
             table.Columns.Add("Vacaciones", typeof(decimal));
             table.Columns.Add("Treceavo mes", typeof(decimal));
 
-            int fila = miTabla1.RowCount;
+            int fila = miTabla1.RowCount; //conteo de filas
 
             for (int i = 0; i < fila; i++)
             {
